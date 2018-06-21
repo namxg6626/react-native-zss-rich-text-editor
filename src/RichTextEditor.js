@@ -514,6 +514,7 @@ export default class RichTextEditor extends Component {
     this._sendAction(actions.setContentPlaceholder, placeholder);
   }
   setPlaceholderColor(color) {
+    console.log(color);
     this._sendAction(actions.setPlaceholderColor, color);
   }
   setCustomCSS(css) {
