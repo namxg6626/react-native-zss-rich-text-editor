@@ -1010,6 +1010,7 @@
 				});
 			}
 			zss_editor.setPlaceholderColor = function(color) {
+				console.log(color);
 				$('#zss_editor_title').attr("placeholderColor",color);
 				$('#zss_editor_content').attr("placeholderColor",color);
 			}
@@ -1745,9 +1746,9 @@
 
 	<body>
 		<!-- ZSSRichTextEditor Editable Content -->
-		<div id="zss_editor_title" class="zss_editor_title" contenteditable="true" placeholder="" placeholderColor="#e0e0e0" disableLineBreaks="true"></div>
+		<div id="zss_editor_title" class="zss_editor_title" contenteditable="true" placeholder="" placeholderColor="" disableLineBreaks="true"></div>
 		<div id="separatorContainer"><hr></div>
-		<div id="zss_editor_content" class="zss_editor_content" contenteditable="true" placeholder="" placeholderColor="#e0e0e0" ></div>
+		<div id="zss_editor_content" class="zss_editor_content" contenteditable="true" placeholder="" placeholderColor="" ></div>
 		<div id="zss_editor_footer"></div>
 	</body>
 </html>
