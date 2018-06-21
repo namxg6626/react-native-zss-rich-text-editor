@@ -85,7 +85,7 @@ export default class RichTextEditor extends Component {
   }
 
   _onKeyboardWillHide(event) {
-    this.setState({keyboardHeight: 0});_sendAction
+    this.setState({keyboardHeight: 0});
   }
 
   setEditorAvailableHeightBasedOnKeyboardHeight(keyboardHeight) {
