@@ -115,6 +115,9 @@ export const InjectedMessageHandler = `
         case '${actions.setContentPlaceholder}':
           zss_editor.setContentPlaceholder(action.data);
           break;
+        case '${actions.setPlaceholderColor}':
+          zss_editor.setPlaceholderColor(action.data);
+          break;
         case '${actions.getTitleHtml}':
           var html = zss_editor.getTitleHTML();
           WebViewBridge.send(JSON.stringify({type: '${messages.TITLE_HTML_RESPONSE}', data: html}));
