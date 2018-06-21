@@ -54,11 +54,6 @@ export default class RichTextEditor extends Component {
     };
     this._selectedTextChangeListeners = [];
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.placeholderColor) {
-      this.setPlaceholderColor(nextProps.placeholderColor);
-    }
-  }
   componentWillMount() {
     if(PlatformIOS) {
       this.keyboardEventListeners = [
@@ -519,7 +514,6 @@ export default class RichTextEditor extends Component {
     this._sendAction(actions.setContentPlaceholder, placeholder);
   }
   setPlaceholderColor(color) {
-    console.log(color);
     this._sendAction(actions.setPlaceholderColor, color);
   }
   setCustomCSS(css) {
