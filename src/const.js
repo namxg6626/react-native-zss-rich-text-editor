@@ -42,6 +42,7 @@ export const actions = {
   setOutdent: 'outdent',
   setTitlePlaceholder: 'SET_TITLE_PLACEHOLDER',
   setContentPlaceholder: 'SET_CONTENT_PLACEHOLDER',
+  setPlaceholderColor: 'setPlaceholderColor',
   setTitleFocusHandler: 'SET_TITLE_FOCUS_HANDLER',
   setContentFocusHandler: 'SET_CONTENT_FOCUS_HANDLER',
   prepareInsert: 'PREPARE_INSERT',
