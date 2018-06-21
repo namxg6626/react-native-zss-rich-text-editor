@@ -5,7 +5,6 @@ export const InjectedMessageHandler = `
     WebViewBridge.onMessage = function (message) {
 
       const action = JSON.parse(message);
-      console.log(action);
       switch(action.type) {
         case '${actions.enableOnChange}':
           zss_editor.enableOnChange();
