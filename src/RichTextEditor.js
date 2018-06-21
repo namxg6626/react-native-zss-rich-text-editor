@@ -54,6 +54,13 @@ export default class RichTextEditor extends Component {
     };
     this._selectedTextChangeListeners = [];
   }
+  
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.placeholderColor) {
+      this.setPlaceholderColor(nextProps.placeholderColor);
+    }
+  }
+
   componentWillMount() {
     if(PlatformIOS) {
       this.keyboardEventListeners = [
