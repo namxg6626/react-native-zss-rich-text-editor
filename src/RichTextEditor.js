@@ -90,7 +90,7 @@ export default class RichTextEditor extends Component {
   }
 
   _onKeyboardWillHide(event) {
-    this.setState({keyboardHeight: 0});
+    this.setState({keyboardHeight: 0});_sendAction
   }
 
   setEditorAvailableHeightBasedOnKeyboardHeight(keyboardHeight) {
@@ -334,6 +334,7 @@ export default class RichTextEditor extends Component {
   _sendAction(action, data) {
     let jsonString = JSON.stringify({type: action, data});
     jsonString = this.escapeJSONString(jsonString);
+    console.log(jsonString);
     this.webviewBridge.sendToBridge(jsonString);
   }
 
