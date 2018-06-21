@@ -19,6 +19,7 @@ export default class RichTextEditor extends Component {
     initialContentHTML: PropTypes.string,
     titlePlaceholder: PropTypes.string,
     contentPlaceholder: PropTypes.string,
+    placeholderColor: PropTypes.string,
     editorInitializedCallback: PropTypes.func,
     customCSS: PropTypes.string,
     hiddenTitle: PropTypes.bool,
@@ -31,7 +32,8 @@ export default class RichTextEditor extends Component {
   static defaultProps = {
     contentInset: {},
     style: {},
-    showKeyboardAtFirst: true
+    showKeyboardAtFirst: true,
+    placeholderColor: '#e0e0e0'
   };
 
   constructor(props) {
@@ -151,6 +153,7 @@ export default class RichTextEditor extends Component {
           }
           this.setTitlePlaceholder(this.props.titlePlaceholder);
           this.setContentPlaceholder(this.props.contentPlaceholder);
+          this.setPlaceholderColor(this.props.placeholderColor);
           this.setTitleHTML(this.props.initialTitleHTML);
           this.setContentHTML(this.props.initialContentHTML);
 
@@ -510,7 +513,9 @@ export default class RichTextEditor extends Component {
   setContentPlaceholder(placeholder) {
     this._sendAction(actions.setContentPlaceholder, placeholder);
   }
-
+  setPlaceholderColor(color) {
+    this._sendAction(actions.setPlaceholderColor, color);
+  }
   setCustomCSS(css) {
     this._sendAction(actions.setCustomCSS, css);
   }
