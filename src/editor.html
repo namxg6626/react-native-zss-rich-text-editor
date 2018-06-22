@@ -1011,8 +1011,6 @@
 				whenPastingInsertAsPlainText('zss_editor_title');
 				whenPastingInsertAsPlainText('zss_editor_content');
 
-				zss_editor.focusTitle();
-
 				setTimeout(function() {
 					WebViewBridge.send(JSON.stringify({type: 'ZSS_INITIALIZED'}))
 				}, 20);
@@ -1105,7 +1103,6 @@
 				});
 			}
 			zss_editor.setPlaceholderColor = function(color) {
-				console.log(color);
 				$('#update_color').html('[placeholder]:empty:before, [placeholder]:empty:focus:before {color: '+ color +';}');
 			}
 			zss_editor.setTitlePlaceholder = function(placeholder) {
