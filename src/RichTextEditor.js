@@ -239,6 +239,9 @@ export default class RichTextEditor extends Component {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
+                {!this._canChangeLink() && this.state.linkUrl ? 
+                  <Text style={styles.linkError}>Incorrect url!</Text> : null
+                }
               </View>
               {PlatformIOS && <View style={styles.lineSeparator}/>}
               {this._renderModalButtons()}
@@ -256,7 +259,11 @@ export default class RichTextEditor extends Component {
       linkUrl: ''
     })
   }
-
+  _canChangeLink() {
+    const urlFormatRegExp = RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
+    const value = this.state.linkUrl;
+    return (value && (this.state.linkUrl.indexOf('http://') === 0 || this.state.linkUrl.indexOf('https://') === 0) && urlFormatRegExp.test(value));
+  }
   _renderModalButtons() {
     const insertUpdateDisabled = this.state.linkTitle.trim().length <= 0 || this.state.linkUrl.trim().length <= 0;
     const containerPlatformStyle = PlatformIOS ? {justifyContent: 'space-between'} : {paddingTop: 15};
@@ -281,10 +288,10 @@ export default class RichTextEditor extends Component {
               }
               this._hideModal();
             }}
-            disabled={insertUpdateDisabled}
+            disabled={insertUpdateDisabled || !this._canChangeLink()}
             style={buttonPlatformStyle}
         >
-          <Text style={[styles.button, {opacity: insertUpdateDisabled ? 0.5 : 1}]}>
+          <Text style={[styles.button, {opacity: (insertUpdateDisabled || !this._canChangeLink()) ? 0.5 : 1}]}>
             {this._upperCaseButtonTextIfNeeded(this._linkIsNew() ? 'Insert' : 'Update')}
           </Text>
         </TouchableOpacity>
@@ -655,6 +662,10 @@ const styles = StyleSheet.create({
   },
   inputTitle: {
     color: '#4a4a4a'
+  },
+  linkError: {
+    color: '#FF0000',
+    fontSize: 12
   },
   input: {
     height: PlatformIOS ? 20 : 40,
