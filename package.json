@@ -10,7 +10,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "react-native-webview-bridge": "github:alinz/react-native-webview-bridge",
-    "deprecated-react-native-listview": "^0.0.6"
+    "deprecated-react-native-listview": "0.0.6"
   },
   "peerDependencies": {
     "react": "*",
